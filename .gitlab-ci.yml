@@ -5,9 +5,21 @@
 # Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
 # Note that environment variables can be set in several places
 # See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
+image: ruby:3.0.2
+
+before_script:
+  - apt-get update && apt-get install -y cmake # cmake is required for Pronto
+  - bundle install
+  - git fetch origin
+
 stages:
-- test
-sast:
-  stage: test
-include:
-- template: Security/SAST.gitlab-ci.yml
+  - lint
+
+pronto:
+  stage: lint
+  only:
+    - merge_requests
+  variables:
+    PRONTO_GITLAB_API_PRIVATE_TOKEN: $PRONTO_ACCESS_TOKEN
+  script:
+    - bundle exec pronto run -f gitlab_mr -c origin/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME
