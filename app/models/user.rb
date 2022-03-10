@@ -12,13 +12,3 @@ class User < ApplicationRecord
 
   enum role: { admin: ADMIN, audience: AUDIENCE }
 end
-
-
-
-
-
-
-
-
-
-
