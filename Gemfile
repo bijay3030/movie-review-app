@@ -51,6 +51,7 @@ group :development, :test do
   gem 'pronto-rubocop', '~> 0.11.1', require: false
 
   gem 'overcommit', '~> 0.58.0'
+  gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop', '~> 1.18.0', require: false
   gem 'rubocop-performance', '~> 1.11.0', require: false
   gem 'rubocop-rails', '~> 2.11.0', require: false
