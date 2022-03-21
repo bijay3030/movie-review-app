@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Style/Documentation
-
 module Users
   class RegistrationsController < Devise::RegistrationsController
     # POST /resource
@@ -11,5 +9,3 @@ module Users
     end
   end
 end
-
-# rubocop:enable Style/Documentation

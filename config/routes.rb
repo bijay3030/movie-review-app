@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       # our apis will come under here
+      resources :movies, only: %i[create show update index destroy] do
+        resources :movie_user_reviews, only: %i[create]
+      end
     end
   end
 end
