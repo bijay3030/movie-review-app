@@ -11,6 +11,7 @@ class User < ApplicationRecord
   (?=.*[A-Z])        # Must contain an upper case character
   (?=.*[[:^alnum:]]) # Must contain a symbol
 /x
+  private_constant :PASSWORD_FORMAT
 
   devise :registerable, :recoverable, :rememberable,
          :validatable, :confirmable,
@@ -21,4 +22,6 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :role, presence: true
   validates :password, format: { with: PASSWORD_FORMAT }
+
+  has_many :movie_user_reviews, dependent: :destroy
 end

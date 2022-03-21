@@ -1,0 +1,6 @@
+en:
+  user:
+    bearer_token:
+      not_found: 'Bearer Token not found'
+    not_authorized: 'User not Authorized'
+

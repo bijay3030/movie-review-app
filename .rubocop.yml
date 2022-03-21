@@ -1,4 +1,4 @@
-# The behavior of RuboCop can be controlled via the .rubocop.yml
+# The behavior of RuboCop can be controlled via the ..rubocop.yml
 # configuration file. It makes it possible to enable/disable
 # certain cops (checks) and to alter their behavior if they accept
 # any parameters. The file can be placed either in your home
@@ -18,10 +18,11 @@ require:
   - rubocop-rails
   - rubocop-rake
   - rubocop-rspec
-  -
+
 AllCops:
   TargetRubyVersion: 3.0
   TargetRailsVersion: 7.0
+  NewCops: enable
   Exclude:
     - '**/db/migrate/*'
     - 'db/schema.rb'
