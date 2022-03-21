@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe(Movie, type: :model) do
   subject do
-    described_class.new(name: 'The Shawshank Redemption',
+    described_class.new(name: 'The Shawshank Redemptions',
                         genre: ['Drama'],
                         length_in_minutes: '144',
                         release_date: '1994-02-23T00:00:00.213Z',
