@@ -5,7 +5,7 @@ require 'spec_helper'
 
 RSpec.describe(User, type: :model) do
   subject do
-    described_class.new(email: 'adil@gmail.com',
+    described_class.new(email: 'adil@1gmail.com',
                         password: 'Adil12345!',
                         first_name: 'Adil',
                         last_name: 'Tuladhar',
