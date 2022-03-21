@@ -42,7 +42,7 @@ module Api
       def destroy
         authorize(@movie, :create?)
         if @movie.destroy
-          head(:no_content)
+          render(json: { message: I18n.t('movie.deleted') }, status: :no_content)
         else
           render(json: @movie.errors, status: :unprocessable_entity)
         end
