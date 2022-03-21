@@ -3,13 +3,13 @@
 require 'rails_helper'
 
 RSpec.describe(MovieUserReview, type: :model) do
-  current_user = User.first_or_create!(email: 'adil@gmail.com',
+  current_user = User.first_or_create!(email: 'adil30@gmail.com',
                                        password: 'Adil12345!',
                                        first_name: 'Adil',
                                        last_name: 'Tuladhar',
                                        role: 'audience'
                                       )
-  movie = Movie.first_or_create!(name: 'The Shawshank Redemption',
+  movie = Movie.first_or_create!(name: 'A',
                                  genre: ['Drama'],
                                  length_in_minutes: '144',
                                  release_date: '1994-02-23T00:00:00.213Z',
