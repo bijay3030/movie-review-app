@@ -3,12 +3,12 @@
 class MovieSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
 
-  attributes :name, :genre, :length_in_minutes, :release_date, :directors, :actors, :writers, :summary, :producers,
-             :aggregated_rating, :cover_image_url
+  attributes :id, :name, :genre, :length_in_minutes, :release_date, :directors, :actors, :writers, :summary, :producers,
+             :aggregate_rating, :cover_image_url
 
   has_many :movie_user_reviews
 
-  def aggregated_rating
+  def aggregate_rating
     no_of_ratings = object.movie_user_reviews.count
     sum = 0
     object.movie_user_reviews.each do |review|

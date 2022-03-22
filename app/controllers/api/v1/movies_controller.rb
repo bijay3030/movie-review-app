@@ -3,7 +3,7 @@
 module Api
   module V1
     class MoviesController < ApplicationController
-      before_action :authenticate_user, only: %i[create update destroy show]
+      before_action :authenticate_user, only: %i[create update destroy]
       before_action :set_movie, only: %i[show update destroy]
 
       # GET    /api/v1/movies
@@ -25,7 +25,6 @@ module Api
 
       # GET    /api/v1/movie/:id
       def show
-        authorize(Movie, :show?)
         render(json: @movie)
       end
 
