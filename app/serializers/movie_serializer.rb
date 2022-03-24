@@ -9,12 +9,7 @@ class MovieSerializer < ActiveModel::Serializer
   has_many :movie_user_reviews
 
   def aggregate_rating
-    no_of_ratings = object.movie_user_reviews.count
-    sum = 0
-    object.movie_user_reviews.each do |review|
-      sum += review.rating
-    end
-    sum.zero? ? nil : (sum / no_of_ratings).round(2)
+    object.aggregate(object)
   end
 
   def cover_image_url
