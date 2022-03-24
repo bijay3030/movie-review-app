@@ -13,4 +13,29 @@ class Movie < ApplicationRecord
 
   has_many :movie_user_reviews, dependent: :destroy
   has_one_attached :cover_image
+
+  def aggregate(movie)
+    no_of_ratings = movie.movie_user_reviews.count
+    sum = 0
+    movie.movie_user_reviews.each do |review|
+      sum += review.rating
+    end
+    sum.zero? ? nil : (sum / no_of_ratings).round(2)
+  end
+
+  def self.to_csv
+    attributes = %w[id name aggregate_rating]
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.find_each do |movie|
+        each_record = []
+        movie.attributes.values_at('id', 'name').each do |attr|
+          each_record << attr
+        end
+        each_record << movie.aggregate(movie)
+        csv << each_record
+      end
+    end
+  end
 end

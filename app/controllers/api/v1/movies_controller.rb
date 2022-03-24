@@ -23,7 +23,10 @@ module Api
             return render(json: { message: I18n.t('invalid_params.invalid_order_params') })
           end
         end
-        render(json: @movies, each_serializer: MovieSerializer)
+        respond_to do |format|
+          format.json { render(json: @movies, each_serializer: MovieSerializer) }
+          format.csv { send_data(@movies.to_csv) }
+        end
       end
 
       # POST   /api/v1/movies

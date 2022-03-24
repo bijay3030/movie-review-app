@@ -10,7 +10,7 @@
 
 admin1 = User.create!(
   email: 'admin1@gmail.com',
-  password: 'admin12345!',
+  password: Rails.application.credentials[:admin1_password],
   first_name: 'Admin1',
   last_name: 'Stha1',
   role: 'admin'
@@ -19,7 +19,7 @@ admin1.confirm
 
 admin2 = User.create!(
   email: 'admin2@gmail.com',
-  password: 'admin12345!',
+  password: Rails.application.credentials[:admin2_password],
   first_name: 'Admin2',
   last_name: 'Stha2',
   role: 'admin'
