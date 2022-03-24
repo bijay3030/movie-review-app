@@ -13,6 +13,16 @@ module Api
                   else
                     Movie.where('name LIKE ?', "%#{params[:search_query]}%")
                   end
+        unless params[:sort_direction].nil?
+          case params[:sort_direction].downcase
+          when 'ascending'
+            @movies = @movies.order(:release_date)
+          when 'descending'
+            @movies = @movies.order('release_date DESC')
+          else
+            return render(json: { message: I18n.t('invalid_params.invalid_order_params') })
+          end
+        end
         render(json: @movies, each_serializer: MovieSerializer)
       end
 
