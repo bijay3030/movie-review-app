@@ -8,7 +8,11 @@ module Api
 
       # GET    /api/v1/movies
       def index
-        @movies = Movie.all
+        @movies = if params[:search_query].nil?
+                    Movie.all
+                  else
+                    Movie.where('name LIKE ?', "%#{params[:search_query]}%")
+                  end
         render(json: @movies, each_serializer: MovieSerializer)
       end
 

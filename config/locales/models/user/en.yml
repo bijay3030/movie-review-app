@@ -1,0 +1,13 @@
+en:
+  user:
+    bearer_token:
+      not_found: 'Bearer Token not found'
+    not_authorized: 'Unauthorized User'
+    validation_errors:
+      password:
+        atleast_one_uppercase: 'must contain at least one uppercase'
+        atleast_one_lowercase: 'must contain at least one lowercase'
+        atleast_one_special_character: 'must contain one special character'
+        atleast_one_number: 'must contain at least one number'
+
+
