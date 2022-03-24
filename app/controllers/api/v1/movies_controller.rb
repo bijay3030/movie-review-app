@@ -25,7 +25,7 @@ module Api
         end
         respond_to do |format|
           format.json { render(json: @movies, each_serializer: MovieSerializer) }
-          format.csv { send_data(@movies.to_csv) }
+          format.html { send_data(@movies.to_csv(@movies)) }
         end
       end
 

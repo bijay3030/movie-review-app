@@ -23,12 +23,12 @@ class Movie < ApplicationRecord
     sum.zero? ? nil : (sum / no_of_ratings).round(2)
   end
 
-  def self.to_csv
+  def self.to_csv(movies)
     attributes = %w[id name aggregate_rating]
     CSV.generate(headers: true) do |csv|
       csv << attributes
 
-      all.find_each do |movie|
+      movies.each do |movie|
         each_record = []
         movie.attributes.values_at('id', 'name').each do |attr|
           each_record << attr
