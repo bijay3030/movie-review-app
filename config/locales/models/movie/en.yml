@@ -1,4 +1,6 @@
 en:
   movie:
     deleted: 'Deleted'
+  invalid_params:
+    invalid_order_params: 'Invalid Ordering params: must be either ascending or descending'
 
