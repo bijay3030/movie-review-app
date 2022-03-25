@@ -16,4 +16,8 @@ class ApplicationController < ActionController::API
   def user_not_authorized
     render(json: { message: I18n.t('user.not_authorized') }, status: :unauthorized)
   end
+
+  def authenticate_user!
+    return render(json: { errors: [I18n.t('user.not_authenticated')] }, status: :unauthorized) unless current_user
+  end
 end
