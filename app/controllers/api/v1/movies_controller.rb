@@ -3,7 +3,7 @@
 module Api
   module V1
     class MoviesController < ApplicationController
-      before_action :authenticate_user, only: %i[create update destroy]
+      before_action :authenticate_user!, except: %i[index show]
       before_action :set_movie, only: %i[show update destroy]
 
       # GET    /api/v1/movies
@@ -79,18 +79,6 @@ module Api
                                       writers: [],
                                       producers: []
                                      )
-      end
-
-      def authenticate_user
-        if request.headers['Authorization']
-          bearer_token = request.headers['Authorization'].split.last
-          decoded_value = JWT.decode(bearer_token, Rails.application.credentials.DEVISE_JWT_SECRET_KEY)
-          user_id = Integer(decoded_value[0]['sub'], 10)
-          @user = User.find_by(id: user_id)
-        else
-          # no bearer token detected
-          render(json: { message: I18n.t('user.bearer_token.not_found') }, status: :unprocessable_entity)
-        end
       end
 
       def set_movie
