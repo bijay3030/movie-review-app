@@ -7,11 +7,12 @@
 </head>
 
 <body style="background-color: #55AEA7;height: 800px;">
-<div class="mx-auto px-5" style="
+<div style="
   width: 40%;
   height: 90%;
   background-color: #FFFFFF;
-  margin: 60px;
+  margin: 50px auto;
+    padding: 20px;
   border-radius: 10px;
   border-bottom: orange 10px;
 ">
@@ -31,7 +32,7 @@
     <div class="footer-details-container" style="text-align: center;">
       <p class="text-secondary" style="text-align: center;"><%= t(:company_location, scope: [:mailer,:confirmation_instructions,:footer]) %></p>
       <p class="text-secondary" style="text-align: center;"><%= t(:company_contacts, scope: [:mailer,:confirmation_instructions,:footer]) %></p>
-      <p class="text-secondary" style="text-align: center;"><%= t(:company_rights, scope: [:mailer,:confirmation_instructions,:footer]) %></p>
+      <p class="text-secondary" style="text-align: center;">&#169;<%= t(:company_rights, scope: [:mailer,:confirmation_instructions,:footer]) %></p>
     </div>
   </div>
 </div>
