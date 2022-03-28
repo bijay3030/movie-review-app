@@ -1,0 +1,12 @@
+en:
+  mailer:
+    confirmation_instructions:
+      body:
+        greetings: 'Hello'
+        instruction: 'You can confirm your account email through the link below:'
+        link: 'Confirm my account'
+      footer:
+        company_location: 'Location: Ranibari Chowk, Kathmandu, Nepal 44600'
+        company_contacts: 'Phone: +977 980-3572935, +977 984-9247553'
+        company_rights: '&#169; 2022 Truemark Private Limited. All rights reserved.'
+

@@ -1,11 +1,56 @@
-<h1>Devise#confirmation_instructions</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
 
-<p>
-  <%= @greeting %>, find me in app/views/devise_mailer/confirmation_instructions.html.erb
-</p>
+<body style="background-color: #55AEA7;height: 800px;">
+<div class="mx-auto px-5" style="
+  width: 40%;
+  height: 90%;
+  background-color: #FFFFFF;
+  margin: 60px;
+  border-radius: 10px;
+  border-bottom: orange 10px;
+">
+  <div style="height: 22%">
+    <% attachments.inline['truemark.png'] = File.read("app/assets/images/truemark.png")%>
+    <p><%= image_tag(attachments['truemark.png'].url, width: '125', height: '125') %></p>
+  </div>
+  <hr/>
+  <div style="height: 40%">
+    <p>
+      <span style="font-size: 20px;"><%= t(:greetings, scope: [:mailer,:confirmation_instructions,:body]) %></span> <%= @email %>!</p>
+    <p> <%= t(:instruction, scope: [:mailer,:confirmation_instructions,:body])%></p>
+    <p><%= link_to t(:link, scope: [:mailer,:confirmation_instructions,:body]), confirmation_url(@resource, confirmation_token: @token) %></p>
+  </div>
+  <hr/>
+  <div style="height: 25%">
+    <div class="footer-details-container" style="text-align: center;">
+      <p class="text-secondary" style="text-align: center;"><%= t(:company_location, scope: [:mailer,:confirmation_instructions,:footer]) %></p>
+      <p class="text-secondary" style="text-align: center;"><%= t(:company_contacts, scope: [:mailer,:confirmation_instructions,:footer]) %></p>
+      <p class="text-secondary" style="text-align: center;"><%= t(:company_rights, scope: [:mailer,:confirmation_instructions,:footer]) %></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
 
-<p>Welcome <%= @email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
