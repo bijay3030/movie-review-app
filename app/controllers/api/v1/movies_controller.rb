@@ -8,21 +8,7 @@ module Api
 
       # GET    /api/v1/movies
       def index
-        @movies = if params[:search_query].nil?
-                    Movie.all
-                  else
-                    Movie.where('name LIKE ?', "%#{params[:search_query]}%")
-                  end
-        unless params[:sort_direction].nil?
-          case params[:sort_direction].downcase
-          when 'ascending'
-            @movies = @movies.order(:release_date)
-          when 'descending'
-            @movies = @movies.order('release_date DESC')
-          else
-            return render(json: { message: I18n.t('invalid_params.invalid_order_params') })
-          end
-        end
+        @movies = Movies::Find.new(Movie, params).execute
         respond_to do |format|
           format.json { render(json: @movies, each_serializer: MovieSerializer) }
           format.html { send_data(@movies.to_csv(@movies)) }
