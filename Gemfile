@@ -69,5 +69,6 @@ group :test do
 end
 
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'aws-sdk-s3', require: false
 gem 'pundit', '~> 2.2.0'
 gem 'whenever', '~> 1.0.0', require: false

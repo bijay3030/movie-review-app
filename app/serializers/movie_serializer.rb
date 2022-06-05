@@ -14,6 +14,6 @@ class MovieSerializer < ActiveModel::Serializer
 
   def cover_image_url
     # to return original asset
-    rails_blob_path(object.cover_image, only_path: true) if object.cover_image.attached?
+    object.cover_image.url if object.cover_image.attached?
   end
 end
