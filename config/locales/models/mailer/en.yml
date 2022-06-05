@@ -9,4 +9,8 @@ en:
         company_location: 'Location: Ranibari Chowk, Kathmandu, Nepal 44600'
         company_contacts: 'Phone: +977 980-3572935, +977 984-9247553'
         company_rights: '2022 Truemark Private Limited. All rights reserved.'
+    reminder_confirmation_instruction:
+      reminder_subject: 'You have not confirmed your email'
+      body:
+        reminder_instruction: 'You have not confirmed your email. Please confirm your account email through the link below:'
 

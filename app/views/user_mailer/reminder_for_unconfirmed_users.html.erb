@@ -8,11 +8,11 @@
 
 <body style="background-color: #55AEA7;height: 800px;">
 <div style="
-  width: 40%;
+width: 40%;
   height: 90%;
   background-color: #FFFFFF;
   margin: 50px auto;
-    padding: 20px;
+  padding: 20px;
   border-radius: 10px;
   border-bottom: orange 10px;
 ">
@@ -24,8 +24,8 @@
   <div style="height: 40%">
     <p>
       <span style="font-size: 20px;"><%= t(:greetings, scope: [:mailer,:confirmation_instructions,:body]) %></span> <%= @email %>!</p>
-    <p> <%= t(:instruction, scope: [:mailer,:confirmation_instructions,:body])%></p>
-    <p><%= link_to t(:link, scope: [:mailer,:confirmation_instructions,:body]), confirmation_url(@resource, confirmation_token: @token) %></p>
+    <p> <%= t(:reminder_instruction, scope: [:mailer,:reminder_confirmation_instruction,:body])%></p>
+    <p><%= link_to t(:link, scope: [:mailer,:confirmation_instructions,:body]), confirmation_url(@user, confirmation_token: @token) %></p>
   </div>
   <hr/>
   <div style="height: 25%;">

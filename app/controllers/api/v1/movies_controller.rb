@@ -10,8 +10,11 @@ module Api
       def index
         @movies = Movies::Find.new(Movie, params).execute
         respond_to do |format|
-          format.json { render(json: @movies, each_serializer: MovieSerializer) }
-          format.html { send_data(@movies.to_csv(@movies)) }
+          if params[:csv] == 'false'
+            format.json { render(json: @movies, each_serializer: MovieSerializer) }
+          else
+            format.html { send_data(@movies.to_csv(@movies)) }
+          end
         end
       end
 
