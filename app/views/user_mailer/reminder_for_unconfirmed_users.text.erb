@@ -1,0 +1,8 @@
+<%= t(:greetings, scope: [:mailer,:confirmation_instructions,:body]) %> <%= @email %>!
+
+<%= t(:instruction, scope: [:mailer,:confirmation_instructions,:body])%>
+
+<%= link_to t(:link, scope: [:mailer,:confirmation_instructions,:body]), confirmation_url(@user, confirmation_token: @token) %>
+
+
+
